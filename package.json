@@ -1,0 +1,8 @@
+{
+  "name": "network-capture-api",
+  "version": "1.0.0",
+  "main": "api/capture.js",
+  "dependencies": {
+    "puppeteer": "^19.0.0"
+  }
+}
