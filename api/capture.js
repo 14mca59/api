@@ -1,4 +1,5 @@
-const puppeteer = require('puppeteer');
+const chromium = require('chrome-aws-lambda');
+const puppeteer = require('puppeteer-core');
 
 module.exports = async (req, res) => {
    const { url } = req.query;
@@ -9,8 +10,9 @@ module.exports = async (req, res) => {
 
    try {
       const browser = await puppeteer.launch({
-         headless: true,
-         args: ['--no-sandbox', '--disable-setuid-sandbox'],
+         args: chromium.args,
+         executablePath: await chromium.executablePath,
+         headless: chromium.headless,
       });
       const page = await browser.newPage();
 
