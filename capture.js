@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
          });
       });
 
-      await page.goto(url, { waitUntil: 'networkidle2' });
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await browser.close();
 
       res.json({ networkRequests });
